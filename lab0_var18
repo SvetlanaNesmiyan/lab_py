@@ -1,0 +1,16 @@
+import numpy as np
+from collections import Counter
+
+def count_max_repeats(row):
+    return max(Counter(row).values())
+
+
+def sort_rows_by_repeats(matrix):
+    return np.array(sorted(matrix, key=count_max_repeats))
+
+
+def find_first_non_negative_column(matrix):
+    for col in range(matrix.shape[1]):
+        if np.all(matrix[:, col] >= 0):
+            return col
+    return -1
