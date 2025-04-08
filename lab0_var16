@@ -1,6 +1,7 @@
 def count_rows_with_zeros(matrix):
     return sum(1 for row in matrix if 0 in row)
 
+
 def longest_series_column(matrix):
     rows, cols = len(matrix), len(matrix[0])
     max_length = 0
