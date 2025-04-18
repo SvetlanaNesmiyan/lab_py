@@ -1,0 +1,26 @@
+from collections import Counter
+
+def count_max_repeats(row):
+    return max(Counter(row).values())
+
+
+def sort_rows_by_repeats(matrix):
+    return sorted(matrix, key=count_max_repeats)
+
+
+def find_first_non_negative_column(matrix):
+    if not matrix or not matrix[0]:
+        return -1
+
+    num_cols = len(matrix[0])
+    num_rows = len(matrix)
+
+    for col in range(num_cols):
+        all_non_negative = True
+        for row in range(num_rows):
+            if matrix[row][col] < 0:
+                all_non_negative = False
+                break
+        if all_non_negative:
+            return col
+    return -1
